@@ -1,0 +1,91 @@
+HOW TO RUN & PLAY CONNECT FOUR
+==============================
+
+You do NOT need to know how to code. Just follow these steps.
+
+STEP 1: Open the folder
+------------------------
+Open the "C1_AbstractStrategyGames" folder (the one this file is in) in Finder.
+
+STEP 2: Double-click one file
+-------------------------------
+Double-click:
+
+      Run_Game.command
+
+A Terminal window pops up briefly (it finds Java and compiles the code), and
+then the colourful Connect Four GAME WINDOW opens. You play with the mouse -
+no typing needed.
+
+If you see a security warning the very first time
+---------------------------------------------------
+Some Macs show a popup like "Run_Game.command cannot be opened because it is
+from an unidentified developer." If that happens:
+   1. Right-click (or Control-click) on "Run_Game.command"
+   2. Choose "Open" from the menu
+   3. Click "Open" again in the popup that appears
+This only needs to be done once.
+
+STEP 3: Play! (in the window)
+------------------------------
+Connect Four is a two-player game - take turns on the same computer.
+
+  - Player 1 is RED, Player 2 is YELLOW. The label at the top shows whose
+    turn it is.
+  - HOVER over a column to see a ghost disc, then CLICK to drop it. It
+    falls with a little animation to the lowest empty slot.
+  - Want to take a token back? Click "Remove mode" at the top, then click a
+    column to remove YOUR token from the bottom (everything above slides
+    down). Click "Remove mode" again to go back to dropping.
+  - Click "↻ New Game" any time to start over.
+
+HOW TO WIN
+-----------
+Be the first to line up FOUR of your discs in a row - horizontally,
+vertically, or diagonally. The winning four light up with white rings.
+If the board fills with no four-in-a-row, it's a tie.
+
+If you try something illegal (a full column, or removing a disc that isn't
+yours), a message appears at the bottom and your turn stays put.
+
+PREFER THE CLASSIC TEXT VERSION?
+---------------------------------
+There's also a keyboard version that plays inside the Terminal. After the
+window has compiled the game once, run:  java -cp bin Client
+Then type moves like  A 4  (add to column 4) or  R 3  (remove from column 3).
+
+
+HOW THE FOLDERS ARE ORGANISED
+------------------------------
+   C1_AbstractStrategyGames/
+     Run_Game.command ……… double-click this to play (stays at the top)
+     Game_Code/ …………………… the actual Connect Four game:
+                              AbstractStrategyGame.java, ConnectFour.java,
+                              ConnectFourGUI.java, Client.java
+     Guides/ …………………………… the text files: ABOUT.txt, HOW_TO_RUN.txt, GAME_CODE.txt
+
+
+FOR CODERS: RUN IT FROM A TERMINAL
+------------------------------------
+   1. Go to the project folder:
+         cd ~/Downloads/C1_AbstractStrategyGames
+   2. Compile the game (output goes to a "bin" folder):
+         javac -d bin Game_Code/*.java
+   3. Run the graphical version:
+         java -cp bin ConnectFourGUI
+      ...or the text version:
+         java -cp bin Client
+
+
+TROUBLESHOOTING
+-----------------
+- Nothing happens when I double-click the file:
+     Try the right-click -> Open method described above.
+
+- It says "A Java JDK was not found":
+     A Java 21 JDK is installed at ~/jdks/. If you moved or deleted it,
+     reinstall from https://adoptium.net/ and try again.
+
+- The Terminal shows compile errors:
+     Make sure the Game_Code folder (with its .java files) is still next
+     to Run_Game.command.

@@ -1,0 +1,103 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║        ●  CONNECT FOUR  ●                                                   ║
+║                                                                            ║
+║        A classic two-player strategy game, built from scratch in Java      ║
+║                                                                            ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│  IN ONE SENTENCE                                                           │
+└────────────────────────────────────────────────────────────────────────────┘
+
+   Connect Four is a turn-based board game for two players who drop tokens
+   into a 7-column grid, racing to be the first to line up four of their
+   tokens in a row - across, up, or diagonally.
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│  HOW THE GAME WORKS                                                        │
+└────────────────────────────────────────────────────────────────────────────┘
+
+   •  The board is 6 rows tall by 7 columns wide.
+   •  Player 1 uses 'X' (red), Player 2 uses 'O' (yellow), '.' is empty.
+   •  On each turn you either ADD a token to a column (it falls to the
+      lowest free spot) or REMOVE one of your own tokens from the bottom
+      of a column (the tokens above it slide down).
+   •  The first player to connect FOUR in a row - horizontally, vertically,
+      or diagonally - wins. A completely full board with no line is a tie.
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│  HOW IT'S BUILT (THE DESIGN)                                              │
+└────────────────────────────────────────────────────────────────────────────┘
+
+   This project is built around an ABSTRACT CLASS called
+   AbstractStrategyGame. It defines the "shape" every turn-based, perfect-
+   information game must have: report the game state, whose turn it is,
+   whether anyone has won, read a move, and make a move.
+
+   Connect Four is one concrete game that fills in that shape. Because it
+   follows the same blueprint, the SAME game-runner (Client) can play it
+   without any changes - and any other game built on the same blueprint
+   could plug in too. This is the power of abstraction: one driver,
+   many games.
+
+      AbstractStrategyGame  (the blueprint / rules of "what a game must do")
+              ▲
+              │  extends
+              │
+        ┌─────┴────────────────────────┐
+    ConnectFour              (your future games...)
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│  WHAT'S IN THIS FOLDER                                                     │
+└────────────────────────────────────────────────────────────────────────────┘
+
+   Run_Game.command …………… Double-click this to compile and play the game
+                              (opens the colourful graphical window).
+
+   Game_Code/  …………………………… the actual Connect Four game
+     ConnectFour.java ………… THE MAIN CODE. The Connect Four game itself:
+                              the board, the moves, and the win-checking.
+     ConnectFourGUI.java …… The point-and-click game WINDOW (red vs. yellow
+                              discs, drop animation, win highlighting). It
+                              drives the SAME ConnectFour rules with the mouse.
+     AbstractStrategyGame.java  The blueprint every game follows (abstract class).
+     Client.java ……………………… The text game-runner: prints the board, asks each
+                              player for a move, and announces the winner.
+
+   Guides/  ……………………………………… the text files you're reading now
+     ABOUT.txt ………………………… This file - what the project is and does.
+     HOW_TO_RUN.txt ………………… Step-by-step instructions for beginners.
+     GAME_CODE.txt ……………… The main code used to build the game, with notes.
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│  BUILT WITH                                                               │
+└────────────────────────────────────────────────────────────────────────────┘
+
+   •  Java (JDK 21) …………… the programming language and compiler
+   •  Java Swing ………………… the built-in toolkit for the point-and-click window
+   •  JUnit 5 ………………………… the framework used to run the automated tests
+
+   The game runs as a colourful desktop window (and also has a classic
+   text-Terminal version) - no extra software needed beyond Java.
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│  WHY IT MATTERS                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+
+   Building Connect Four on top of a shared abstract class is a hands-on
+   lesson in one of the most important ideas in programming: separating
+   "what something must do" (the abstract blueprint) from "how a specific
+   thing does it" (the concrete game). Master this, and you can grow a
+   whole family of games that all plug into the same machinery.
+
+
+              ─────────────────────────────────────────────────
+                  New here?  Open  HOW_TO_RUN.txt  next.
+              ─────────────────────────────────────────────────
